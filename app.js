@@ -52,7 +52,6 @@ formulario.addEventListener('submit', function(event) {
 });
 
 // --- RENDERIZADO DINÁMICO DE HABILIDADES ---
-// IMPORTANTE: Definimos los datos ANTES de llamar a la función
 const habilidades = [
     { nombre: "HTML5", nivel: "Intermedio", icono: "🌐" },
     { nombre: "CSS3", nivel: "Intermedio", icono: "🎨" },
@@ -61,7 +60,9 @@ const habilidades = [
 ];
 
 function cargarHabilidades() {
+    console.log("Intentando cargar habilidades..."); // Mensaje de diagnóstico en consola
     const contenedor = document.getElementById('lista-habilidades');
+    
     if (contenedor) {
         contenedor.innerHTML = "";
         habilidades.forEach(hab => {
@@ -69,8 +70,11 @@ function cargarHabilidades() {
             li.innerHTML = `<strong>${hab.icono} ${hab.nombre}</strong> - <em>${hab.nivel}</em>`;
             contenedor.appendChild(li);
         });
+        console.log("¡Habilidades cargadas con éxito!"); // Confirmación en consola
+    } else {
+        console.error("Error: No se encontró el elemento con ID 'lista-habilidades'"); // Alerta si hay error
     }
 }
 
-// Llamamos a la función al final de todo
-cargarHabilidades();
+// ESTE ES EL PASO VITAL: Esperar a que el HTML esté listo antes de ejecutar
+document.addEventListener('DOMContentLoaded', cargarHabilidades);
