@@ -1,0 +1,201 @@
+:root {
+    --bg-body: #f2f2f2;
+    --bg-main: #ffffff;
+    --text-color: #333333;
+    --primary-color: #0056b3;
+    --primary-hover: #003f80;
+    --header-bg: #808080;
+    --border-color: #ccc;
+    --input-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+    --bg-body: #121212;
+    --bg-main: #1e1e1e;
+    --text-color: #e0e0e0;
+    --primary-color: #4da3ff;
+    --primary-hover: #80bfff;
+    --header-bg: #333333;
+    --border-color: #444;
+    --input-bg: #2d2d2d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg-body); /* CORREGIDO: Usando variable */
+    color: var(--text-color);        /* CORREGIDO: Usando variable */
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: var(--bg-main); /* CORREGIDO: Usando variable */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.boton-tema {
+    float: right;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-tema:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    background-color: var(--header-bg); /* CORREGIDO: Usando variable */
+    color: white;
+    padding: 2rem;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.sobre-mi {
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.sobre-mi .texto { flex: 2; }
+.sobre-mi .imagen { flex: 1; }
+.sobre-mi img { width: 100%; max-width: 300px; border-radius: 6px; }
+
+.form-contacto {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 12px;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--primary-hover);
+}
+
+input:invalid {
+    border: 2px solid #ff4d4d;
+}
+
+input:valid:not(:placeholder-shown) {
+    border: 2px solid #28a745;
+}
+
+.mensaje-toast {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    gap: 12px;
+    z-index: 1000;
+    animation: slideIn 0.5s ease-out;
+}
+
+.icono-check {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    margin-top: 40px;
+}
+
+/* 10. Responsive Design (Mobile) */
+@media (max-width: 600px) {
+    main { 
+        margin: 10px; 
+        padding: 15px; 
+        display: flex;
+        flex-direction: column; /* Alinea el botón y el título verticalmente */
+    } 
+
+    .boton-tema { 
+        float: none; 
+        align-self: center; /* Centra el botón en el celular */
+        margin-bottom: 15px; 
+    }
+
+    h1 { 
+        font-size: 1.6rem; 
+        padding: 1.5rem; 
+        background-color: var(--header-bg); /* Ahora cambia en modo oscuro en móvil */
+    }
+
+    .sobre-mi { 
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .sobre-mi .imagen { 
+        order: -1; /* Pone tu foto arriba del texto en el celular */
+    }
+
+    .mensaje-toast { 
+        left: 10px; 
+        right: 10px; 
+        top: 10px; 
+        justify-content: center;
+    }
+}

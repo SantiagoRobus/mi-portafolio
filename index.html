@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Santiago Rojas</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main>
+        <button id="theme-toggle" class="boton-tema">🌙 Modo Oscuro</button>
+
+        <section class="principal">
+            <h1>Portafolio personal</h1>
+
+            <div class="sobre-mi">
+                <div class="texto">
+                    <h2>Sobre Mí</h2>
+                    <p>Mucho gusto me presento, mi nombre es santiago rojas un estudiante de tercer semestre y estoy aprendiendo a hacer paginas web con HTML y CSS.</p>
+                    <p>Estoy aprendiendo lenguajes de programación como html para empezar a emprender.</p>
+                    <p>Me gustaria aprender a crear paginas web para grandes empresas, empezar a explotar mis habilidades de programción.</p>
+                </div>
+                <div class="imagen">
+                    <img src="img/presentacion.jpg" width="400" alt="imagen de presentación">
+                </div>
+            </div>           
+            <br>
+            <h3>¿Que estoy aprendiendo?</h3>
+            <ul>
+                <li id="html">HTML</li>
+                <li id="css">CSS</li>
+                <li id="javascript">JavaScript</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Que tipo de paginas web me gustaria desarrollar</h3>
+            <p>Me gustaria realizar paginas web para grandes empresas u optimizarlas, quiero aprovechar mis ganas de aprender y mejorar cada dia.</p>
+        </section>
+
+        <section class="formulario">
+            <h3>Contactame</h3>
+            <form class="form-contacto">
+                <label for="nombre"> Ingrese su Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
+                
+                <label for="correo">Ingrese su correo electronico:</label>
+                <input type="email" id="correo" name="correo">
+                
+                <label for="mensaje">Deje aqui su motivo a contactar</label>
+                <textarea id="mensaje" name="mensaje" rows="4" cols="50">Escriba aqui... </textarea>
+                
+                <input type="submit" value="Enviar">
+            </form>
+
+            <div id="mensajeExito" class="mensaje-toast">
+                <span class="icono-check">✔</span>
+                <p>¡Gracias! Santiago ha recibido tu mensaje con éxito.</p>
+            </div>
+        </section>
+    </main> 
+
+    <footer class="footer">
+        <p>&copy; 2025 Santiago Rojas. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
