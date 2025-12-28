@@ -58,3 +58,23 @@ formulario.addEventListener('submit', function(event) {
         }, 1500); 
     }
 });
+
+const habilidades = [
+    {nombre: "HTML5", nivel: "Intermedio", icono: "🌐"},
+    {nombre: "CSS3", nivel: "Intermedio", icono: "🎨"},
+    {nombre: "JavaScript", nivel: "Basico", icono: "⚡"},
+    {nombre: "Git & GitHub", nivel: "Basico", icono: "📁"},
+];
+
+function cargarHabilidades() {
+    const contenedor = document.getElementById('lista-habilidades');
+    contenedor.innerHTML = "";
+    habilidades.forEach(hab => {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${hab.icono} ${hab.nombre}</strong> - <em>${hab.nivel}</em>`;
+        contenedor.appendChild(li);
+    });
+
+    cargarHabilidades();
+
+}
